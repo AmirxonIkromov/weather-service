@@ -1,0 +1,31 @@
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/weather_service
+    username: postgres
+    password: root123
+    drive-class-name: org.postgresql.Driver
+  liquibase:
+        change-log: classpath:db/changelog/changelog.sql
+  main:
+    allow-circular-references: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  sql:
+    init:
+      mode: always
+
